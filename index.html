@@ -46,12 +46,43 @@
     button:hover {
       background-color: #333;
     }
-    iframe {
-      margin-top: 2rem;
-      border: none;
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
       width: 100%;
-      max-width: 640px;
-      height: 500px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+    .modal-content input[type="email"] {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -67,8 +98,29 @@
       <br><br>
       Bez celu. Bez planu. Bez presji.
     </p>
-    <button onclick="alert('Dziękuję, że jesteś. Niedługo tu wrócimy.')">Zatrzymaj się ze mną</button>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpe4Pr1ukL8_dMCIcLoAnME7qUcBrscEas3J9QFcRHAQkVDw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Ładuję…</iframe>
+    <button onclick="openModal()">Zatrzymaj się ze mną</button>
   </div>
+
+  <div class="modal" id="emailModal">
+    <div class="modal-content">
+      <h2>Zostaw swój e-mail</h2>
+      <p>Dam Ci znać, gdy ta przestrzeń się otworzy.</p>
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSfpe4Pr1ukL8_dMCIcLoAnME7qUcBrscEas3J9QFcRHAQkVDw/formResponse" method="POST" target="_blank">
+        <input type="email" name="entry.2005620554" placeholder="Twój e-mail" required>
+        <br>
+        <button type="submit">Zapisz mnie</button>
+      </form>
+    </div>
+    <span class="close" onclick="closeModal()">&times;</span>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('emailModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('emailModal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
