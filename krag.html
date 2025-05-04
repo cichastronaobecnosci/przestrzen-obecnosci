@@ -20,6 +20,7 @@
       padding: 2rem;
     }
     .container {
+      position: relative;
       max-width: 600px;
       padding: 2rem;
       text-align: center;
@@ -27,10 +28,28 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 12px;
       z-index: 10;
+      overflow: hidden;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(200, 170, 150, 0.2), transparent 70%);
+      z-index: 1;
+    }
+    .container * {
+      position: relative;
+      z-index: 2;
     }
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
+    }
+    h1 span {
+      display: block;
     }
     p {
       font-size: 1.1rem;
@@ -79,25 +98,20 @@
       font-size: 1rem;
       color: #1a1a1a;
     }
-    .show-button {
+    #mainButton {
       padding: 0.75rem 1.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       border: 2px solid #856859;
       border-radius: 6px;
       background-color: transparent;
       color: #856859;
       cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .show-button:hover {
-      background-color: #856859;
-      color: #fff;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Już nie muszę – Krąg Powrotu do Siebie</h1>
+    <h1><span>Już nie muszę</span><span>– Krąg Powrotu do Siebie</span></h1>
     <p>Nie muszę być silniejsza niż czuję.</p>
     <p>Nie muszę udowadniać, że wiem, dokąd zmierzam.</p>
     <p>Nie muszę dostosowywać się do tempa świata.</p>
@@ -113,11 +127,13 @@
         Kameralna grupa. Channelingi. Pytania. Prawda.<br>
         Płacisz tyle, ile czujesz – z miłości, nie z lęku.
       </p>
-      <button class="show-button" onclick="showForm()">Zapisz mnie</button>
+      <div id="mainButtonContainer">
+        <button id="mainButton" onclick="showForm()">Zapisz mnie</button>
+      </div>
       <div id="emailFormContainer">
         <form id="emailForm">
-          <input type="hidden" name="source" value="krag-obecnosci">
           <input type="email" name="email" placeholder="Twój e-mail" required>
+          <input type="hidden" name="source" value="krag-obecnosci">
           <br>
           <button type="submit">Wyślij</button>
         </form>
@@ -129,19 +145,18 @@
   <script>
     function showForm() {
       document.getElementById("emailFormContainer").style.display = "block";
+      document.getElementById("mainButtonContainer").style.display = "none";
     }
 
     document.getElementById("emailForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const email = this.email.value;
+      const source = this.source.value;
 
       fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          email: email,
-          source: 'krag-obecnosci' 
-        })
+        body: JSON.stringify({ email, source })
       }).then(response => {
         if (response.ok) {
           this.style.display = 'none';
