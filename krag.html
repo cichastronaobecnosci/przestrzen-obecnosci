@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Już nie muszę &ndash; Krąg Powrotu do Siebie</title>
+  <title>Już nie muszę – Krąg Powrotu do Siebie</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
@@ -46,30 +46,46 @@
     .cta h2 {
       margin-top: 0;
     }
-    .button {
+    form input[type="email"] {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    form button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
       background-color: #856859;
-      color: white;
-      padding: 0.8rem 1.4rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
+      color: #fff;
+      cursor: pointer;
       margin-top: 1rem;
     }
-    .button:hover {
+    form button:hover {
       background-color: #6b5143;
+    }
+    .thank-you {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #1a1a1a;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Już nie muszę &ndash; Krąg Powrotu do Siebie</h1>
+    <h1>Już nie muszę – Krąg Powrotu do Siebie</h1>
     <p>Nie muszę być silniejsza niż czuję.</p>
     <p>Nie muszę udowadniać, że wiem, dokąd zmierzam.</p>
     <p>Nie muszę dostosowywać się do tempa świata.</p>
     <p>
       Tworzę krąg dla kobiet, które czują to samo.<br>
-      Dla tych, które już nie chcą bardziej się starać &ndash; tylko bardziej być.<br>
+      Dla tych, które już nie chcą bardziej się starać – tylko bardziej być.<br>
       Dla tych, które stoją na progu zmiany i potrzebują przestrzeni, by wrócić do siebie.
     </p>
     <div class="cta">
@@ -77,14 +93,33 @@
       <p>
         Spotykamy się online, raz w tygodniu przez 3 tygodnie.<br>
         Kameralna grupa. Channelingi. Pytania. Prawda.<br>
-        Płacisz tyle, ile czujesz &ndash; z miłości, nie z lęku.
+        Płacisz tyle, ile czujesz – z miłości, nie z lęku.
       </p>
-      <a href="mailto:kontakt@cichastronaobecnosci.pl?subject=Zgłoszenie%20do%20kręgu" class="button">Zgłaszam się</a>
+      <form id="emailForm">
+        <input type="email" name="email" placeholder="Twój e-mail" required>
+        <br>
+        <button type="submit">Zapisz mnie</button>
+      </form>
+      <div class="thank-you" id="thankYouMessage">Dziękuję, że jesteś.</div>
     </div>
   </div>
-</body>
-</html>
-    </div>
-  </div>
+
+  <script>
+    document.getElementById("emailForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = this.email.value;
+
+      fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      }).then(response => {
+        if (response.ok) {
+          this.style.display = 'none';
+          document.getElementById("thankYouMessage").style.display = 'block';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
