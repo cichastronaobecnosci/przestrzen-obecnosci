@@ -79,6 +79,20 @@
       font-size: 1rem;
       color: #1a1a1a;
     }
+    .show-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border: 2px solid #856859;
+      border-radius: 6px;
+      background-color: transparent;
+      color: #856859;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .show-button:hover {
+      background-color: #856859;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -99,7 +113,7 @@
         Kameralna grupa. Channelingi. Pytania. Prawda.<br>
         Płacisz tyle, ile czujesz – z miłości, nie z lęku.
       </p>
-      <button onclick="showForm()">Zapisz mnie</button>
+      <button class="show-button" onclick="showForm()">Zapisz mnie</button>
       <div id="emailFormContainer">
         <form id="emailForm">
           <input type="email" name="email" placeholder="Twój e-mail" required>
