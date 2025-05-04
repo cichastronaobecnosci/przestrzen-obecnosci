@@ -46,6 +46,10 @@
     .cta h2 {
       margin-top: 0;
     }
+    #emailFormContainer {
+      display: none;
+      margin-top: 1rem;
+    }
     form input[type="email"] {
       padding: 0.5rem;
       width: 80%;
@@ -95,16 +99,23 @@
         Kameralna grupa. Channelingi. Pytania. Prawda.<br>
         Płacisz tyle, ile czujesz – z miłości, nie z lęku.
       </p>
-      <form id="emailForm">
-        <input type="email" name="email" placeholder="Twój e-mail" required>
-        <br>
-        <button type="submit">Zapisz mnie</button>
-      </form>
-      <div class="thank-you" id="thankYouMessage">Dziękuję, że jesteś.</div>
+      <button onclick="showForm()">Zapisz mnie</button>
+      <div id="emailFormContainer">
+        <form id="emailForm">
+          <input type="email" name="email" placeholder="Twój e-mail" required>
+          <br>
+          <button type="submit">Wyślij</button>
+        </form>
+        <div class="thank-you" id="thankYouMessage">Dziękuję, że jesteś.</div>
+      </div>
     </div>
   </div>
 
   <script>
+    function showForm() {
+      document.getElementById("emailFormContainer").style.display = "block";
+    }
+
     document.getElementById("emailForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const email = this.email.value;
