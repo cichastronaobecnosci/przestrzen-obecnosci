@@ -7,25 +7,27 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
-      background: linear-gradient(to bottom, #f9f5f2, #f1e9e4);
+      background-color: #f4f4f4;
       color: #1a1a1a;
       font-family: 'Georgia', serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      height: 100vh;
       margin: 0;
+      position: relative;
       padding: 2rem;
     }
     .container {
-      max-width: 700px;
+      max-width: 600px;
       padding: 2rem;
       text-align: center;
       background-color: #fff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 16px;
+      border-radius: 12px;
       z-index: 10;
+      position: relative;
     }
     h1 {
       font-size: 2rem;
@@ -34,16 +36,32 @@
     p {
       font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     .cta {
       background-color: #e7d7c9;
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 12px;
       margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
     }
-    .cta h2 {
-      margin-top: 0;
+    .cta::before {
+      content: "";
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .cta h2, .cta p, .cta button, .thank-you {
+      position: relative;
+      z-index: 1;
     }
     #emailFormContainer {
       display: none;
@@ -58,18 +76,18 @@
       border-radius: 4px;
       font-size: 1rem;
     }
-    form button, .cta button {
+    form button {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       border: 2px solid #856859;
       border-radius: 6px;
-      background-color: #fff;
+      background-color: transparent;
       color: #856859;
       cursor: pointer;
       margin-top: 1rem;
     }
-    form button:hover, .cta button:hover {
-      background-color: #f0e5df;
+    form button:hover {
+      background-color: #f4eae4;
     }
     .thank-you {
       display: none;
@@ -98,11 +116,11 @@
         Kameralna grupa. Channelingi. Pytania. Prawda.<br>
         Płacisz tyle, ile czujesz – z miłości, nie z lęku.
       </p>
-      <button onclick="showForm()">Zapisz mnie</button>
+      <button id="signupButton" onclick="showForm()">Zapisz mnie</button>
       <div id="emailFormContainer">
         <form id="emailForm">
-          <input type="hidden" name="source" value="krag">
           <input type="email" name="email" placeholder="Twój e-mail" required>
+          <input type="hidden" name="source" value="krąg">
           <br>
           <button type="submit">Wyślij</button>
         </form>
@@ -113,7 +131,7 @@
 
   <script>
     function showForm() {
-      document.querySelector(".cta button").style.display = "none";
+      document.getElementById("signupButton").style.display = "none";
       document.getElementById("emailFormContainer").style.display = "block";
     }
 
@@ -124,7 +142,7 @@
       fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: "krag" })
+        body: JSON.stringify({ email, source: 'krąg' })
       }).then(response => {
         if (response.ok) {
           this.style.display = 'none';
