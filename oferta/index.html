@@ -2,6 +2,42 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
+  <title>Sesje 1:1 – Cicha Strona Obecności</title>
+
+  <style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 260px;
+      background-color: #fff7f0;
+      color: #3e2b21;
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.8em;
+      position: absolute;
+      z-index: 10;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sesje 1:1 – Cicha Strona Obecności</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
