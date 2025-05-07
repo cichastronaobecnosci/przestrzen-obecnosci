@@ -35,6 +35,42 @@
       visibility: visible;
       opacity: 1;
     }
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .tooltip .tooltiptext {
+    width: 90vw;
+    bottom: auto;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  a[href^="https://calendly"] {
+    font-size: 1rem;
+    padding: 0.9em 1.2em;
+  }
+}
   </style>
 </head>
   <meta charset="UTF-8">
