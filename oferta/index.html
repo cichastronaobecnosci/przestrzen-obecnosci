@@ -7,10 +7,13 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
     body {
-      <div style="background-color: #f5ede4; background-image: url('grafika_tla.svg'); background-size: cover; background-position: center; padding: 1.5em; border-radius: 12px; text-align: center; max-width: 700px; margin: auto;">
+      background-color: #f5ede4;
+      padding: 1.5em;
+      margin: 0;
     }
 
     .container {
+      position: relative;
       max-width: 700px;
       width: 100%;
       padding: 2rem;
@@ -18,6 +21,8 @@
       background-color: rgba(255, 255, 255, 0.95);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 12px;
+      margin: auto;
+      overflow: hidden;
     }
 
     h1 {
@@ -76,6 +81,16 @@
       font-size: 1rem;
       color: #1a1a1a;
     }
+
+    .macka {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 120px;
+      opacity: 0.85;
+      z-index: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -90,21 +105,22 @@
     Spotkanie online 75 minut<br>
     Po spotkaniu: rekomendacje, refleksje, wsparcie integracyjne</p>
 
-<div style="background-color: #f5ede4; background-image: url('oferta_grafika.webp'); background-size: cover; background-position: center; padding: 1.5em; border-radius: 12px; text-align: center; max-width: 700px; margin: auto;">
-  <h2 style="font-family: 'Georgia', serif; font-size: 24px; font-weight: bold; color: #1a1a1a;">Chcesz doświadczyć tej przestrzeni?</h2>
-  <p style="font-family: 'Georgia', serif; font-size: 17px; color: #1a1a1a; margin-top: 1em;">
-    Zapraszam Cię na <strong>20-minutową rozmowę wstępną</strong>. Spokojne spotkanie, w którym sprawdzimy, czy to dobry moment i kierunek dla Ciebie.
-  </p>
-  <a href="https://calendly.com/magda-cichastronaobecnosci/30min" target="_blank"
-     style="display: inline-block; background-color: #6b4c3b; color: white; font-family: 'Georgia', serif; font-size: 16px; padding: 10px 20px; border-radius: 10px; text-decoration: none; margin-top: 1.2em;">
-    Umów rozmowę
-  </a>
-  <p style="margin-top: 1em; font-size: 0.95rem; color: #5e5e5e; font-family: 'Georgia', serif;">
-  Po zapisaniu się otrzymasz e-mail z linkiem do Google Meet oraz kilkoma pytaniami, które pomogą nam spotkać się głębiej.
-</p>
-</div>
-      </div>
+    <div style="background-color: #f5ede4; background-image: url('oferta_grafika.webp'); background-size: cover; background-position: center; padding: 1.5em; border-radius: 12px; text-align: center; max-width: 700px; margin: auto;">
+      <h2 style="font-family: 'Georgia', serif; font-size: 24px; font-weight: bold; color: #1a1a1a;">Chcesz doświadczyć tej przestrzeni?</h2>
+      <p style="font-family: 'Georgia', serif; font-size: 17px; color: #1a1a1a; margin-top: 1em;">
+        Zapraszam Cię na <strong>20-minutową rozmowę wstępną</strong>. Spokojne spotkanie, w którym sprawdzimy, czy to dobry moment i kierunek dla Ciebie.
+      </p>
+      <a href="https://calendly.com/magda-cichastronaobecnosci/30min" target="_blank"
+         style="display: inline-block; background-color: #6b4c3b; color: white; font-family: 'Georgia', serif; font-size: 16px; padding: 10px 20px; border-radius: 10px; text-decoration: none; margin-top: 1.2em;">
+        Umów rozmowę
+      </a>
+      <p style="margin-top: 1.4em; font-size: 1rem; color: #3e2b21; font-family: 'Georgia', serif;">
+        ✧ Po zapisaniu się otrzymasz e-mail z linkiem do Google Meet oraz kilkoma pytaniami, które pomogą nam spotkać się głębiej.
+      </p>
     </div>
+
+    <!-- 🐙 Macka -->
+    <img src="grafika_tla.svg" alt="macka" class="macka">
   </div>
 
   <script>
@@ -113,25 +129,28 @@
       document.getElementById("signupBtn").style.display = "none";
     }
 
-    document.getElementById("emailForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const email = this.email.value;
+    const form = document.getElementById("emailForm");
+    if (form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const email = this.email.value;
 
-      fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          _subject: "Zgłoszenie na sesję 1:1",
-          tag: "sesja-1-1"
-        })
-      }).then(response => {
-        if (response.ok) {
-          this.style.display = 'none';
-          document.getElementById("thankYouMessage").style.display = 'block';
-        }
+        fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            _subject: "Zgłoszenie na sesję 1:1",
+            tag: "sesja-1-1"
+          })
+        }).then(response => {
+          if (response.ok) {
+            this.style.display = 'none';
+            document.getElementById("thankYouMessage").style.display = 'block';
+          }
+        });
       });
-    });
+    }
   </script>
 </body>
 </html>
