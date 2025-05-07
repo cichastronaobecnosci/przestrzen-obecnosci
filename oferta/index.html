@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sesje 1:1 – Cicha Strona Obecności</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f4f4f4 0%, #f4f4f4 60%, #e7d7c9 100%);
+      color: #1a1a1a;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background-image: url('/tlo_sesje.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .cta {
+      background-color: #e7d7c9;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    #emailFormContainer {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    form input[type="email"] {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    form button, .cta button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #856859;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    form button:hover, .cta button:hover {
+      background-color: #6b5143;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sesje 1:1 – Spotkanie z Twoją Prawdą</h1>
+    <p>Nie dostaniesz gotowej odpowiedzi. Ale usłyszysz swoją.</p>
+    <p>Nie będę Ci mówić, kim jesteś. Pomogę Ci to poczuć.</p>
+    <p>Te sesje to nie coaching. To przestrzeń powrotu. Do Twojego ciała, duszy, mocy.</p>
+
+    <p>Pracuję z kobietami, które są gotowe wybrać siebie – nie idealną, tylko prawdziwą.</p>
+    <p>Cena: 600 zł<br>
+    Spotkanie online / 75 minut<br>
+    Przed spotkaniem: krótkie pytania mailowe<br>
+    Po spotkaniu: rekomendacje, refleksje, wsparcie integracyjne</p>
+
+    <div class="cta">
+      <h2>Chcesz doświadczyć tej przestrzeni?</h2>
+      <p>Podaj swój e-mail. Odezwę się z propozycją terminu i krótkim formularzem wstępnym.</p>
+      <button onclick="showForm()" id="signupBtn">Zapisz mnie</button>
+      <div id="emailFormContainer">
+        <form id="emailForm">
+          <input type="email" name="email" placeholder="Twój e-mail" required>
+          <br>
+          <button type="submit">Wyślij</button>
+        </form>
+        <div class="thank-you" id="thankYouMessage">Dziękuję – jesteśmy w kontakcie.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showForm() {
+      document.getElementById("emailFormContainer").style.display = "block";
+      document.getElementById("signupBtn").style.display = "none";
+    }
+
+    document.getElementById("emailForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = this.email.value;
+
+      fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          _subject: "Zgłoszenie na sesję 1:1",
+          tag: "sesja-1-1"
+        })
+      }).then(response => {
+        if (response.ok) {
+          this.style.display = 'none';
+          document.getElementById("thankYouMessage").style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
