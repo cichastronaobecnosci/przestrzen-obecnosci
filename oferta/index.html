@@ -221,13 +221,20 @@ src="https://www.facebook.com/tr?id=641341902241699&ev=PageView&noscript=1"
     });
   </script>
 <script>
-  document.getElementById('przyciskUmowRozmowe').addEventListener('click', function() {
-    fbq('track', 'ViewContent', {
+  document.getElementById('przyciskUmowRozmowe').addEventListener('click', function(e) {
+    e.preventDefault(); // zatrzymuje domyślne otwarcie linku
+
+    fbq('track', 'Lead', {
       content_name: 'Sesja 1:1 – Rozmowa wstępna',
       content_category: 'Duchowe wsparcie',
       value: 0,
       currency: 'PLN'
     });
+
+    // opóźnij przejście o 300 ms – wystarczy, by Pixel wysłał dane
+    setTimeout(function() {
+      window.open("https://calendly.com/magda-cichastronaobecnosci/30min", "_blank");
+    }, 300);
   });
 </script>
 </body>
