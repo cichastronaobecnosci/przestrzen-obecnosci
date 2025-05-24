@@ -2,77 +2,29 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Sesja 1:1 – Cicha Strona Obecności</title>
-
-  <style>
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      cursor: help;
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 260px;
-      background-color: #fff7f0;
-      color: #3e2b21;
-      text-align: left;
-      border-radius: 8px;
-      padding: 0.8em;
-      position: absolute;
-      z-index: 10;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      line-height: 1.4;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-/* MOBILE OVERRIDES */
- @media (max-width: 768px) {
-  body {
-    background-image: none !important;}
-  .container {
-    background-image: url('grafika_tla_mobile.png');
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size:75%;
-    background-color: transparent;
-    box-shadow: none;
-    padding: 2rem 1rem;
-    z-index: 1;
-  }
-}
-  </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3273486179476344');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3273486179476344&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-</head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sesja 1:1 – Cicha Strona Obecności</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3273486179476344'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3273486179476344&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     body {
       background: linear-gradient(to bottom, #f4f4f4 0%, #f4f4f4 60%, #e7d7c9 100%);
@@ -112,50 +64,16 @@ src="https://www.facebook.com/tr?id=3273486179476344&ev=PageView&noscript=1"
       margin-bottom: 1rem;
     }
 
-    .cta {
-      background-color: #e7d7c9;
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin-top: 2rem;
-      position: relative;
-    }
-
-    #emailFormContainer {
-      display: none;
-      margin-top: 1rem;
-    }
-
-    form input[type="email"] {
-      padding: 0.5rem;
-      width: 80%;
-      max-width: 300px;
-      margin-top: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    form button, .cta button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #856859;
-      color: #fff;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    form button:hover, .cta button:hover {
-      background-color: #6b5143;
-    }
-
-    .thank-you {
-      display: none;
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 1rem;
-      color: #1a1a1a;
+    a.button-link {
+      display: inline-block;
+      background-color: #6b4c3b;
+      color: white;
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 1.2em;
     }
   </style>
 </head>
@@ -165,70 +83,34 @@ src="https://www.facebook.com/tr?id=3273486179476344&ev=PageView&noscript=1"
     <p>Nie dostaniesz gotowej odpowiedzi. Ale usłyszysz swoją.</p>
     <p>Nie będę Ci mówić, kim jesteś. Pomogę Ci to poczuć.</p>
     <p>Te sesje to nie coaching. To przestrzeń powrotu. Do Twojego ciała, duszy, mocy.</p>
-
     <p>Pracuję z kobietami, które są gotowe wybrać siebie – nie idealną, tylko prawdziwą.</p>
-    <p>
-      <p>
-  <span class="tooltip">
-    Cena: 555 zł
-    <span class="tooltiptext">
-      555 to liczba transformacji - tej prawdziwej, nie na pokaz.  
-      Nie musisz w to wierzyć. Wystarczy, że czujesz. ♡
-    </span>
-  </span><br>
-  Spotkanie online 75 minut<br>
-  Po spotkaniu: rekomendacje, refleksje, wsparcie integracyjne
-</p>
 
-<div style="background-color: #f5ede4; background-image: url('oferta_grafika.webp'); background-size: cover; background-position: center; padding: 1.5em; border-radius: 12px; text-align: center; max-width: 700px; margin: auto;">
-  <h2 style="font-family: 'Georgia', serif; font-size: 24px; font-weight: bold; color: #1a1a1a;">Chcesz doświadczyć tej przestrzeni?</h2>
-  <p style="font-family: 'Georgia', serif; font-size: 17px; color: #1a1a1a; margin-top: 1em;">
-    Zapraszam Cię na <strong>20-minutową rozmowę wstępną</strong>. Spokojne spotkanie, w którym sprawdzimy, czy to dobry moment i kierunek dla Ciebie.
-  </p>
-<a id="przyciskUmowRozmowe" href="https://calendly.com/magda-cichastronaobecnosci/30min" target="_blank" 
-   style="display: inline-block; background-color: #6b4c3b; color: white; font-family: 'Georgia', serif; font-size: 16px; padding: 10px 20px; border-radius: 10px; text-decoration: none; margin-top: 1.2em;">
-  Umów rozmowę
-</a>
-</div>
-      </div>
-    </div>
+    <p><strong>Cena: 555 zł</strong><br>
+      Spotkanie online 75 minut<br>
+      Po spotkaniu: rekomendacje, refleksje, wsparcie integracyjne
+    </p>
+
+    <h2>Chcesz doświadczyć tej przestrzeni?</h2>
+    <p>
+      Zapraszam Cię na <strong>20-minutową rozmowę wstępną</strong>. Spokojne spotkanie,
+      w którym sprawdzimy, czy to dobry moment i kierunek dla Ciebie.
+    </p>
+
+    <a id="przyciskUmowRozmowe" class="button-link" href="https://calendly.com/magda-cichastronaobecnosci/30min" target="_blank">
+      Umów rozmowę
+    </a>
   </div>
 
   <script>
-    function showForm() {
-      document.getElementById("emailFormContainer").style.display = "block";
-      document.getElementById("signupBtn").style.display = "none";
-    }
-
-    document.getElementById("emailForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const email = this.email.value;
-
-      fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          _subject: "Zgłoszenie na sesję 1:1",
-          tag: "sesja-1-1"
-        })
-      }).then(response => {
-        if (response.ok) {
-          this.style.display = 'none';
-          document.getElementById("thankYouMessage").style.display = 'block';
-        }
+    document.getElementById('przyciskUmowRozmowe').addEventListener('click', function() {
+      fbq('track', 'ViewContent', {
+        content_name: 'Sesja 1:1 – Rozmowa wstępna',
+        content_category: 'Duchowe wsparcie',
+        value: 0,
+        currency: 'PLN'
       });
     });
   </script>
-<script>
-  document.getElementById('przyciskUmowRozmowe').addEventListener('click', function() {
-    fbq('track', 'ViewContent', {
-      content_name: 'Sesja 1:1 – Rozmowa wstępna',
-      content_category: 'Duchowe wsparcie',
-      value: 0,
-      currency: 'PLN'
-    });
-  });
-</script>
 </body>
 </html>
+
