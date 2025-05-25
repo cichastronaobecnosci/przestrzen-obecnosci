@@ -1,69 +1,240 @@
-<style>
-  @media screen and (max-width: 600px) {
-    section {
-      padding: 2em 1.2em !important;
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Sesja 1:1 – Cicha Strona Obecności</title>
+
+  <style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
     }
-    section h1 {
-      font-size: 1.7em !important;
-      line-height: 1.3;
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 260px;
+      background-color: #fff7f0;
+      color: #3e2b21;
+      text-align: left;
+      border-radius: 8px;
+      padding: 0.8em;
+      position: absolute;
+      z-index: 10;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-    section p,
-    section ul,
-    section ol {
-      font-size: 1em !important;
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
     }
-    section img {
-      border-radius: 8px !important;
-      margin: 1.5em 0 !important;
-    }
-    section a {
-      display: block !important;
-      text-align: center !important;
-      font-size: 1.1em !important;
-    }
+/* MOBILE OVERRIDES */
+ @media (max-width: 768px) {
+  body {
+    background-image: none !important;}
+  .container {
+    background-image: url('grafika_tla_mobile.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size:75%;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 2rem 1rem;
+    z-index: 1;
   }
-</style>
+}
+  </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '641341902241699');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=641341902241699&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sesja 1:1 – Cicha Strona Obecności</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f4f4f4 0%, #f4f4f4 60%, #e7d7c9 100%);
+      color: #1a1a1a;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background-image: url('grafika_tla.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-<section style="max-width: 700px; margin: 0 auto; font-family: 'Georgia', serif; color: #3e2b21; background-color: #fffefc; padding: 3em 2em; border-radius: 16px; box-shadow: 0 0 30px rgba(0,0,0,0.05);">
-  <h1 style="font-size: 2.2em; margin-bottom: 0.6em; color: #43291f;">Sesje 1:1 – Spotkanie z Twoją Prawdą</h1>
-  <p style="font-size: 1.2em; margin-bottom: 1.2em;">Nie dostaniesz gotowej odpowiedzi. Ale usłyszysz swoją.</p>
-  <p style="margin-bottom: 1em;">Nie będę Ci mówić, kim jesteś. Pomogę Ci to poczuć.</p>
-  <p style="margin-bottom: 1em;">Te sesje to nie coaching. To przestrzeń powrotu. Do Twojego ciała, duszy, mocy.</p>
-  <p style="margin-bottom: 2em;">Pracuję z kobietami, które są gotowe wybrać siebie – nie idealną, tylko prawdziwą.</p>
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
 
-  <div style="background-color: #fdf3eb; padding: 1em; border-radius: 8px; margin-bottom: 2em;">
-    <strong>Cena:</strong> 555 zł<br>
-    <strong>Czas trwania:</strong> 75 minut (online)<br>
-    <strong>Po sesji:</strong> refleksje, rekomendacje i wsparcie integracyjne mailowo
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .cta {
+      background-color: #e7d7c9;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    #emailFormContainer {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    form input[type="email"] {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    form button, .cta button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #856859;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    form button:hover, .cta button:hover {
+      background-color: #6b5143;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #1a1a1a;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h1>Sesje 1:1 – Spotkanie z Twoją Prawdą</h1>
+    <p>Nie dostaniesz gotowej odpowiedzi. Ale usłyszysz swoją.</p>
+    <p>Nie będę Ci mówić, kim jesteś. Pomogę Ci to poczuć.</p>
+    <p>Te sesje to nie coaching. To przestrzeń powrotu. Do Twojego ciała, duszy, mocy.</p>
+
+    <p>Pracuję z kobietami, które są gotowe wybrać siebie – nie idealną, tylko prawdziwą.</p>
+    <p>
+      <p>
+  <span class="tooltip">
+    Cena: 555 zł
+    <span class="tooltiptext">
+      555 to liczba transformacji - tej prawdziwej, nie na pokaz.  
+      Nie musisz w to wierzyć. Wystarczy, że czujesz. ♡
+    </span>
+  </span><br>
+  Spotkanie online 75 minut<br>
+  Po spotkaniu: rekomendacje, refleksje, wsparcie integracyjne
+</p>
+
+<div style="background-color: #f5ede4; background-image: url('oferta_grafika.webp'); background-size: cover; background-position: center; padding: 1.5em; border-radius: 12px; text-align: center; max-width: 700px; margin: auto;">
+  <h2 style="font-family: 'Georgia', serif; font-size: 24px; font-weight: bold; color: #1a1a1a;">Chcesz doświadczyć tej przestrzeni?</h2>
+  <p style="font-family: 'Georgia', serif; font-size: 17px; color: #1a1a1a; margin-top: 1em;">
+    Zapraszam Cię na <strong>20-minutową rozmowę wstępną</strong>. Spokojne spotkanie, w którym sprawdzimy, czy to dobry moment i kierunek dla Ciebie.
+  </p>
+<a id="przyciskUmowRozmowe" href="https://calendly.com/magda-cichastronaobecnosci/30min" target="_blank" 
+   style="display: inline-block; background-color: #6b4c3b; color: white; font-family: 'Georgia', serif; font-size: 16px; padding: 10px 20px; border-radius: 10px; text-decoration: none; margin-top: 1.2em;">
+  Umów rozmowę
+</a>
+</div>
+      </div>
+    </div>
   </div>
 
-  <img src="/mnt/data/cfb77f71-4f34-462f-8952-5afcd363634a.png" alt="Twoje zdjęcie 1" style="width: 100%; border-radius: 10px; margin: 2em 0;">
+  <script>
+    function showForm() {
+      document.getElementById("emailFormContainer").style.display = "block";
+      document.getElementById("signupBtn").style.display = "none";
+    }
 
-  <h2 style="color: #43291f;">Dla kogo jest ta sesja?</h2>
-  <ul style="margin-bottom: 2em;">
-    <li>Czujesz, że jesteś na progu zmiany, ale nie wiesz jeszcze, w którą stronę pójść</li>
-    <li>Masz w sobie głębię, której nikt nie widzi – i chcesz ją odzyskać</li>
-    <li>Szukasz przestrzeni wolnej od presji i ocen, pełnej obecności</li>
-  </ul>
+    document.getElementById("emailForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = this.email.value;
 
-  <h2 style="color: #43291f;">Co mówią kobiety po sesji?</h2>
-  <blockquote style="background-color: #fff7f0; padding: 1em; border-left: 4px solid #b1785d; font-style: italic; margin-bottom: 1em;">
-    „Dziękuję za Twoją obecność, w której mogę się rozkleić – nie zamierzałam płakać, ale poczułam się bezpieczniej.”
-  </blockquote>
-  <blockquote style="background-color: #fff7f0; padding: 1em; border-left: 4px solid #b1785d; font-style: italic;">
-    „To wszystko co mówisz, ma ogromny sens i czuję, że się z tym zgadzam. Skąd to wszystko wiesz/rozumiesz?”
-  </blockquote>
+      fetch("https://formsubmit.co/ajax/lubas.magdalena13@gmail.com", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          _subject: "Zgłoszenie na sesję 1:1",
+          tag: "sesja-1-1"
+        })
+      }).then(response => {
+        if (response.ok) {
+          this.style.display = 'none';
+          document.getElementById("thankYouMessage").style.display = 'block';
+        }
+      });
+    });
+  </script>
+<script>
+  document.getElementById('przyciskUmowRozmowe').addEventListener('click', function(e) {
+    e.preventDefault(); // zatrzymuje domyślne otwarcie linku
 
-  <img src="/mnt/data/3b7a80e7-4f67-4004-b91e-ff172e9eb04f.png" alt="Twoje zdjęcie 2" style="width: 100%; border-radius: 10px; margin: 2em 0;">
+    fbq('track', 'Lead', {
+      content_name: 'Sesja 1:1 – Rozmowa wstępna',
+      content_category: 'Duchowe wsparcie',
+      value: 0,
+      currency: 'PLN'
+    });
 
-  <h2 style="color: #43291f;">Jak wygląda proces?</h2>
-  <ol style="margin-bottom: 2em;">
-    <li>Wybierasz termin przez Calendly</li>
-    <li>Spotykamy się online (Zoom / Google Meet)</li>
-    <li>Po sesji otrzymujesz podsumowanie i propozycje integracji</li>
-  </ol>
-
-  <h2 style="color: #43291f;">Chcesz doświadczyć tej przestrzeni?</h2>
-  <p style="margin-bottom: 1.5em;">Zapraszam Cię na <strong>20-minutową rozmowę wstępną</strong> – spokojne spotkanie, w którym sprawdzimy, czy to dobry moment i kierunek dla Ciebie.</p>
-  <a href="https://calendly.com/magda-cichastronaobecnosci/30min" target="_blank" style="display: inline-block; background-color: #6b4c3b; color: white; padding: 0.75em 1.5em; border-radius: 8px; text-decoration: none; font-weight: bold;">Umów rozmowę</a>
-</section>
+    // opóźnij przejście o 300 ms – wystarczy, by Pixel wysłał dane
+    setTimeout(function() {
+      window.open("https://calendly.com/magda-cichastronaobecnosci/30min", "_blank");
+    }, 300);
+  });
+</script>
+</body>
+</html>
